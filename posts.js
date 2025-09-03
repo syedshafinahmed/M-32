@@ -10,7 +10,7 @@ const loadPost = () => {
 
 const displayPost = (posts) => {
     const postContainer = document.getElementById("post-container");
-
+    postContainer.innerHTML = "";
     // for (let i = 0; i < posts.length; i++) {
     //     console.log(posts[i]);
     // }
@@ -19,8 +19,18 @@ const displayPost = (posts) => {
     // }
     posts.forEach((post) =>{
         // console.log(post.title);
-        const li = document.createElement("li");
-        li.innerText = post.title;
-        postContainer.appendChild(li);
+        // const li = document.createElement("li");
+        // li.innerText = post.title;
+        // postContainer.appendChild(li);
+        const postCard = document.createElement("div");
+        postCard.innerHTML = `
+        <div class="post-card">
+            <h1>${post.title}</h1>
+            <p>${post.body}</p>
+        </div>`;
+        postContainer.append(postCard);
     })
 }
+
+
+loadPost();
